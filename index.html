@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>countdown to my birthday timer</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Countdown to my birthday</h1>
 
-      <ul>
-        <li><span id="days"></span>days</li>
-        <li><span id="hours"></span>Hours</li>
-        <li><span id="minutes"></span>Minutes</li>
-        <li><span id="seconds"></span>Seconds</li>
-      </ul>
-      <script src="script.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Countdown</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <h1>My Birthday is Around the Corner</h1>
+
+  <div class="countdown-container">
+    <div class="countdown-el days-c">
+      <p class="big-text" id="days">0</p>
+      <span>days</span>
     </div>
-  </body>
+    <div class="countdown-el hours-c">
+      <p class="big-text" id="hours">0</p>
+      <span>hours</span>
+    </div>
+    <div class="countdown-el mins-c">
+      <p class="big-text" id="mins">0</p>
+      <span>mins</span>
+    </div>
+    <div class="countdown-el seconds-c">
+      <p class="big-text" id="seconds">0</p>
+      <span>seconds</span>
+    </div>
+  </div>
+</body>
+
 </html>
