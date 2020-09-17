@@ -3,7 +3,7 @@ const hoursEl = document.getElementById("hours");
 const minsEl = document.getElementById("mins");
 const secondsEl = document.getElementById("seconds");
 
-const Birthdaty = "28 sep 2020";
+const Birthdaty = "2 oct 2020";
 
 function countdown() {
   const BirthdatyDate = new Date(Birthdaty);
