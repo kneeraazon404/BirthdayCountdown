@@ -3,14 +3,27 @@ const hoursEl = document.getElementById("hours");
 const minsEl = document.getElementById("mins");
 const secondsEl = document.getElementById("seconds");
 
-const Birthdaty = "28 sep 2025";
+function getNextBirthday() {
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  
+  // Get the next birthday based on the current year
+  let nextBirthday = new Date(`28 Sep ${currentYear}`);
+
+  // If the current date is after September 28 of the current year, set it to next year
+  if (currentDate > nextBirthday) {
+    nextBirthday = new Date(`28 Sep ${currentYear + 1}`);
+  }
+
+  return nextBirthday;
+}
 
 function countdown() {
-  const BirthdatyDate = new Date(Birthdaty);
+  const birthDate = getNextBirthday();
   const currentDate = new Date();
-
-  const totalSeconds = (BirthdatyDate - currentDate) / 1000;
-
+  
+  const totalSeconds = (birthDate - currentDate) / 1000;
+  
   const days = Math.floor(totalSeconds / 3600 / 24);
   const hours = Math.floor(totalSeconds / 3600) % 24;
   const mins = Math.floor(totalSeconds / 60) % 60;
@@ -26,35 +39,7 @@ function formatTime(time) {
   return time < 10 ? `0${time}` : time;
 }
 
-// initial call
+// Initial call
 countdown();
 
 setInterval(countdown, 1000);
-
-// const second = 1000,
-//   minute = second * 60,
-//   hour = minute * 60,
-//   day = hour * 24;
-
-// let countDown = new Date("Sep 28, 2020 00:00:00").getTime(),
-//   x = setInterval(function () {
-//     let now = new Date().getTime(),
-//       distance = countDown - now;
-
-//     (document.getElementById("days").innerText = Math.floor(distance / day)),
-//     (document.getElementById("hours").innerText = Math.floor(
-//       (distance % day) / hour
-//     )),
-//     (document.getElementById("minutes").innerText = Math.floor(
-//       (distance % hour) / minute
-//     )),
-//     (document.getElementById("seconds").innerText = Math.floor(
-//       (distance % minute) / second
-//     ));
-
-//     //do something later when date is reached
-//     //if (distance < 0) {
-//     //  clearInterval(x);
-//     //  'IT'S MY BIRTHDAY!;
-//     //}
-//   }, second);
