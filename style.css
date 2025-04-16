@@ -9,7 +9,7 @@
 
 body {
   /* Random birthday-themed background image from Unsplash */
-  background-image: url("https://source.unsplash.com/random/1920x1080/?birthday,celebration,party");
+  background-image: url("https://plus.unsplash.com/premium_photo-1675419799009-4d862a880eec?q=80&w=2344&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center center;
   display: flex;
