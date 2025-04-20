@@ -28,9 +28,9 @@ body {
   width: 90%;
   max-width: 1200px;
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.65); /* Slightly darkened overlay */
+  background: rgba(0, 0, 0, 0.85); /* Slightly darkened overlay */
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
   animation: slideInFromTop 1.5s ease-out;
 }
 
