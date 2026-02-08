@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&family=Playfair+Display:ital,wght@0,400;1,700&family=Great+Vibes&display=swap");
+
+:root {
+  --primary: #ffd700; /* Rich Gold */
+  --accent: #9d4edd; /* Electric Purple */
+  --bg-dark: #0f0f13;
+  --glass: rgba(255, 255, 255, 0.08); /* Slightly more opaque */
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --text-main: #ffffff;
+  --text-muted: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--bg-dark);
+  /* Using the generated image as a blended background */
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)),
+    url("images/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+  padding: 2rem 0; /* Add padding for scroll if content overflows */
+}
+
+/* Subtle animated gradient overlay */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(157, 78, 221, 0.1),
+    transparent 70%
+  );
+  animation: pulseBackground 8s infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.main-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Photo Gallery styling */
+.photo-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  perspective: 1000px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.photo-card {
+  width: 250px;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.5s;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-15px) rotateY(5deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(157, 78, 221, 0.4);
+  border-color: var(--primary);
+  z-index: 5;
+}
+
+.photo-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Stagger different rotations for visual interest */
+.photo-card:nth-child(1) {
+  transform: rotateY(10deg) translateZ(-20px);
+}
+.photo-card:nth-child(2) {
+  transform: translateZ(20px);
+  z-index: 2;
+  width: 280px;
+  height: 380px;
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+}
+.photo-card:nth-child(3) {
+  transform: rotateY(-10deg) translateZ(-20px);
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  padding: 3rem 2rem;
+
+  /* Advanced Glassmorphism */
+  background: var(--glass);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+header {
+  margin-bottom: 2.5rem;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+  background: linear-gradient(to right, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-name {
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 4.5rem;
+}
+
+/* "Wish me at" Text Styling */
+p.wish-me-at {
+  font-family: "Great Vibes", cursive; /* User asked for impressive text */
+  font-size: 3.5rem;
+  color: var(--accent);
+  margin: 1.5rem 0;
+  text-shadow: 0 0 15px rgba(157, 78, 221, 0.6);
+  transform: rotate(-2deg); /* Stylish tilt */
+  animation: floatText 3s ease-in-out infinite;
+}
+
+/* Countdown Grid */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.4); /* Darker contrast */
+  border-radius: 50%; /* Circular counters */
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Decorative ring */
+.time-box::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  opacity: 0.3;
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+.time-box:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: rgba(157, 78, 221, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(157, 78, 221, 0.3);
+}
+
+.time-box:hover::before {
+  transform: scale(1.1);
+  opacity: 0.6;
+  border-color: var(--accent);
+}
+
+.number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+footer {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1.5rem;
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--text-muted);
+  width: 80%;
+}
+
+/* Celebration State */
+.celebration-message {
+  display: none;
+  font-family: "Great Vibes", cursive;
+  font-size: 5rem;
+  color: var(--primary);
+  text-shadow: 0 0 20px var(--primary);
+  animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatText {
+  0%,
+  100% {
+    transform: rotate(-2deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-2deg) translateY(-8px);
+  }
+}
+
+@keyframes pulseBackground {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .photo-gallery {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .photo-card {
+    width: 150px;
+    height: 200px;
+  }
+  .photo-card:nth-child(2) {
+    width: 170px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-gallery {
+    transform: scale(0.9);
+    margin-bottom: 1rem;
+  }
+  .photo-card {
+    width: 100px;
+    height: 140px;
+  }
+  .photo-card:nth-child(2) {
+    width: 120px;
+    height: 160px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .highlight-name {
+    font-size: 3rem;
+  }
+  p.wish-me-at {
+    font-size: 2rem;
+  }
+  .countdown {
+    gap: 0.8rem;
+  }
+  .time-box {
+    width: 70px;
+    height: 70px;
+    border-width: 1px;
+  }
+  .number {
+    font-size: 1.5rem;
+  }
+  .label {
+    font-size: 0.5rem;
+    letter-spacing: 0;
+  }
+  .container {
+    padding: 1.5rem 1rem;
+    width: 95%;
+    backdrop-filter: blur(15px);
+  }
+}
