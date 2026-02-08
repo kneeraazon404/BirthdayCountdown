@@ -1,51 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body
+    class="bg-gray-900 text-white min-h-screen flex items-center justify-center relative overflow-hidden"
+  >
+    <!-- Dynamic Background -->
+    <div class="absolute inset-0 z-0">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-black opacity-90"
+      ></div>
+      <div
+        class="absolute top-0 left-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
+      ></div>
+      <div
+        class="absolute top-0 right-0 w-96 h-96 bg-yellow-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+      ></div>
+      <div
+        class="absolute -bottom-32 left-20 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
+      ></div>
+    </div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Countdown</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-</head>
+    <!-- Glassmorphism Card -->
+    <main
+      class="relative z-10 p-8 glass rounded-2xl shadow-2xl max-w-4xl w-11/12 text-center transform transition duration-500 hover:scale-[1.01]"
+    >
+      <header class="mb-10 space-y-4">
+        <h1
+          class="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-pink-500 pb-2"
+          id="greeting"
+        >
+          Namaste! I am <br />
+          Nirajan Karki
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-300 font-light tracking-wide"
+          id="message"
+        >
+          Wish me a Happy Birthday in
+        </p>
+      </header>
 
-<body>
-  <!-- Main Container -->
-  <div class="main-container">
-    <!-- Greeting Section -->
-    <header class="header">
-      <h1 class="greeting">Namaste! I am Nirajan Karki</h1>
-      <h2 class="subheading">Wish me a Happy Birthday after</h2>
-    </header>
+      <!-- Countdown Timer -->
+      <div
+        id="countdown-container"
+        class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+      >
+        <!-- Days -->
+        <div
+          class="flex flex-col items-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition duration-300 group"
+        >
+          <span
+            id="days"
+            class="text-5xl md:text-6xl font-bold text-yellow-400 group-hover:text-yellow-300 transition duration-300"
+            >0</span
+          >
+          <span class="text-sm uppercase tracking-widest text-gray-400 mt-2"
+            >Days</span
+          >
+        </div>
 
-    <!-- Countdown Section -->
-    <section class="countdown-container">
-      <div class="countdown-el days-c">
-        <p class="big-text" id="days">0</p>
-        <span>days</span>
-      </div>
-      <div class="countdown-el hours-c">
-        <p class="big-text" id="hours">0</p>
-        <span>hours</span>
-      </div>
-      <div class="countdown-el mins-c">
-        <p class="big-text" id="mins">0</p>
-        <span>mins</span>
-      </div>
-      <div class="countdown-el">
-        <p class="big-text">And</p>
-      </div>
-      <div class="countdown-el seconds-c">
-        <p class="big-text" id="seconds">0</p>
-        <span>seconds</span>
-      </div>
-    </section>
+        <!-- Hours -->
+        <div
+          class="flex flex-col items-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition duration-300 group"
+        >
+          <span
+            id="hours"
+            class="text-5xl md:text-6xl font-bold text-blue-400 group-hover:text-blue-300 transition duration-300"
+            >00</span
+          >
+          <span class="text-sm uppercase tracking-widest text-gray-400 mt-2"
+            >Hours</span
+          >
+        </div>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-      <h2 class="thank-you">Thank You!</h2>
-    </footer>
-  </div>
-</body>
+        <!-- Minutes -->
+        <div
+          class="flex flex-col items-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition duration-300 group"
+        >
+          <span
+            id="mins"
+            class="text-5xl md:text-6xl font-bold text-green-400 group-hover:text-green-300 transition duration-300"
+            >00</span
+          >
+          <span class="text-sm uppercase tracking-widest text-gray-400 mt-2"
+            >Mins</span
+          >
+        </div>
 
+        <!-- Seconds -->
+        <div
+          class="flex flex-col items-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition duration-300 group"
+        >
+          <span
+            id="seconds"
+            class="text-5xl md:text-6xl font-bold text-pink-400 group-hover:text-pink-300 transition duration-300"
+            >00</span
+          >
+          <span class="text-sm uppercase tracking-widest text-gray-400 mt-2"
+            >Secs</span
+          >
+        </div>
+      </div>
+
+      <footer class="mt-8 border-t border-white/10 pt-6">
+        <h2 class="text-2xl font-light italic text-gray-400">Thank You!</h2>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/code.js"></script>
+  </body>
 </html>
